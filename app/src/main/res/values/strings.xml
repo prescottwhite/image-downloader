@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Image Downloader</string>
+    
+<!--    activity_main buttons-->
+    <string name="download">Download</string>
+    <string name="view">View</string>
+    <string name="search">Search</string>
+
+
+</resources>
