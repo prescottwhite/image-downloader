@@ -3,25 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom|center"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/downloadButton"
+        android:id="@+id/AM_button_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/download" />
+        android:text="@string/AM_download" />
 
     <Button
-        android:id="@+id/viewButton"
+        android:id="@+id/AM_button_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/view" />
+        android:text="@string/AM_view" />
 
     <Button
-        android:id="@+id/searchButton"
+        android:id="@+id/AM_button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search" />

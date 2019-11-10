@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">Image Downloader</string>
 
-    <!--    activity_main buttons-->
-    <string name="download">Download</string>
-    <string name="view">View</string>
+    <!-- used in multiple places-->
     <string name="search">Search</string>
 
+    <!-- activity_main-->
+    <string name="AM_download">Download images</string>
+    <string name="AM_view">View images</string>
 
+    <!-- activity_download-->
+    <string name="AD_url_hint">Enter URL to image</string>
+    <string name="AD_title_hint">Enter Title</string>
+    <string name="AD_download">Download image</string>
+
+    <!-- activity_search-->
+    <string name="AS_search_hint">Search Title</string>
 </resources>
