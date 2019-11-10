@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDownloadButton = findViewById(R.id.AM_button_download);
+        mViewButton = findViewById(R.id.AM_button_view);
+        mSearchButton = findViewById(R.id.AM_button_search);
+
         mDownloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        mViewButton = findViewById(R.id.AM_button_view);
 //        mViewButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        mSearchButton = findViewById(R.id.AM_button_search);
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

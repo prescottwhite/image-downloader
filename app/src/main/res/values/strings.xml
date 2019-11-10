@@ -12,6 +12,7 @@
     <string name="AD_url_hint">Enter URL to image</string>
     <string name="AD_title_hint">Enter Title</string>
     <string name="AD_download">Download image</string>
+    <string name="AD_toast_error">Check your internet connection and if URL is valid</string>
 
     <!-- activity_search-->
     <string name="AS_search_hint">Search Title</string>

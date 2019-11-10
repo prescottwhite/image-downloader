@@ -9,19 +9,19 @@
     tools:context=".DownloadActivity">
 
     <EditText
-        android:id="@+id/AD_editText_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/AD_title_hint"
-        android:inputType="textPersonName" />
-
-    <EditText
         android:id="@+id/AD_editText_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/AD_url_hint"
+        android:inputType="textUri|textPersonName" />
+
+    <EditText
+        android:id="@+id/AD_editText_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/AD_title_hint"
         android:inputType="textPersonName" />
 
     <Button
