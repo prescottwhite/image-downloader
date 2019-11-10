@@ -17,6 +17,7 @@ public class ImageDatabase extends SQLiteOpenHelper {
 
     private static final class ImageTable {
         private static final String TABLE = "images";
+        private static final String COL_ID = "_id";
         private static final String COL_TITLE = "title";
         private static final String COL_BLOB = "blob";
     }
@@ -24,6 +25,7 @@ public class ImageDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + ImageTable.TABLE + " (" +
+                ImageTable.COL_ID + " integer primary key autoincrement, " +
                 ImageTable.COL_TITLE + " text, " +
                 ImageTable.COL_BLOB + " Blob)");
     }
