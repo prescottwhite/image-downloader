@@ -1,8 +1,10 @@
 package com.cse118.imagedownloader;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 
 import java.sql.Blob;
 
@@ -27,11 +29,22 @@ public class ImageDatabase extends SQLiteOpenHelper {
         db.execSQL("create table " + ImageTable.TABLE + " (" +
                 ImageTable.COL_ID + " integer primary key autoincrement, " +
                 ImageTable.COL_TITLE + " text, " +
-                ImageTable.COL_BLOB + " Blob)");
+                ImageTable.COL_BLOB + " BLOB)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists " + ImageTable.TABLE);
+        onCreate(db);
+    }
+
+    public long addBlob(String title, byte[] blob) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(ImageTable.COL_TITLE, title);
+        values.put(ImageTable.COL_BLOB, blob);
+        long id = db.insert(ImageTable.TABLE, null, values);
+        return id;
     }
 }

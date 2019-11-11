@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -53,6 +54,8 @@ public class DownloadActivity extends AppCompatActivity {
                 if (bitmap != null) {
                     Toast errorToast = Toast.makeText(getBaseContext(), "SUCCESS", Toast.LENGTH_LONG);
                     errorToast.show();
+
+                    addBitmapToSQL(urlString, bitmap);
                 }
                 else {
                     Toast errorToast = Toast.makeText(getBaseContext(), R.string.AD_toast_error, Toast.LENGTH_LONG);
@@ -84,5 +87,14 @@ public class DownloadActivity extends AppCompatActivity {
         protected void onPostExecute(Bitmap bitmap) {
 
         }
+    }
+
+    private void addBitmapToSQL(String title, Bitmap bitmap) {
+        ImageDatabase db = new ImageDatabase(this);
+        ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteOutStream);
+        byte[] byteFromBitmap = byteOutStream.toByteArray();
+
+        db.addBlob(title, byteFromBitmap);
     }
 }
