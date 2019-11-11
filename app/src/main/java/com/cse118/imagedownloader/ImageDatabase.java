@@ -53,8 +53,8 @@ public class ImageDatabase extends SQLiteOpenHelper {
         return id;
     }
 
-    public List<Image> getImages() {
-        List<Image> images = new ArrayList<>();
+    public ArrayList<Image> getImages() {
+        ArrayList<Image> images = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
