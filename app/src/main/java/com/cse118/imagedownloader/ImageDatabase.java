@@ -78,4 +78,26 @@ public class ImageDatabase extends SQLiteOpenHelper {
 
         return images;
     }
+
+    public ArrayList<Image> searchImages(String search) {
+        ArrayList<Image> images = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "select * from " + ImageTable.TABLE + " where " +
+                ImageTable.COL_TITLE + " like " + "\'%" + search + "%\'";
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Image image = new Image();
+                image.setId(cursor.getInt(0));
+                image.setTitle(cursor.getString(1));
+                image.setBlob(cursor.getBlob(2));
+                images.add(image);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return images;
+    }
 }
