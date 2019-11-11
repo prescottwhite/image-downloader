@@ -1,7 +1,5 @@
 package com.cse118.imagedownloader;
 
-import java.sql.Blob;
-
 public class Image {
 
     private int id;
