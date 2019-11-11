@@ -22,10 +22,14 @@ import java.util.List;
 public class ImageAdapter extends
         RecyclerView.Adapter<ImageAdapter.ViewHolder> {
 
+    ImageDatabase db;
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+        db = new ImageDatabase(context);
+
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View imageView = inflater.inflate(R.layout.image_row, parent, false);
@@ -36,8 +40,8 @@ public class ImageAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Image image = mImages.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        final Image image = mImages.get(position);
 
         TextView textViewID = holder.mIDTextView;
         textViewID.setText(Integer.toString(image.getId()));
@@ -52,6 +56,12 @@ public class ImageAdapter extends
 
         ImageButton buttonDel = holder.mDeleteButton;
         buttonDel.setEnabled(true);
+        buttonDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.deleteImage(image.getId());
+            }
+        });
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.cse118.imagedownloader;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,10 @@ public class ViewActivity extends AppCompatActivity {
         ImageAdapter adapter = new ImageAdapter(images);
 
         recyclerView.setAdapter(adapter);
+
+        RecyclerView.ItemDecoration itemDecoration = new
+                DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(itemDecoration);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

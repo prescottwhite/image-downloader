@@ -10,7 +10,9 @@
         android:id="@+id/IR_TextView_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <ImageView
         android:id="@+id/IR_ImageView_image"
@@ -23,7 +25,8 @@
         android:id="@+id/IR_TextView_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <ImageButton
         android:id="@+id/IR_Button_delete"

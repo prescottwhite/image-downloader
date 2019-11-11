@@ -53,6 +53,11 @@ public class ImageDatabase extends SQLiteOpenHelper {
         return id;
     }
 
+    public boolean deleteImage(int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(ImageTable.TABLE, ImageTable.COL_ID + "=" + id, null) > 0;
+    }
+
     public ArrayList<Image> getImages() {
         ArrayList<Image> images = new ArrayList<>();
 
