@@ -60,6 +60,10 @@ public class ImageAdapter extends
             @Override
             public void onClick(View v) {
                 db.deleteImage(image.getId());
+                mImages.clear();
+                mImages.addAll(db.getImages());
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, mImages.size());
             }
         });
     }
