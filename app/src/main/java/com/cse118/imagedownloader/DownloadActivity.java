@@ -28,6 +28,7 @@ public class DownloadActivity extends AppCompatActivity {
     private Button mDownloadButton;
 
     private String urlString;
+    private String titleString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class DownloadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 urlString = mURLText.getText().toString();
+                titleString = mTitleText.getText().toString();
+
                 Bitmap bitmap = null;
 
                 try {
@@ -52,10 +55,8 @@ public class DownloadActivity extends AppCompatActivity {
                 }
 
                 if (bitmap != null) {
-                    Toast errorToast = Toast.makeText(getBaseContext(), "SUCCESS", Toast.LENGTH_LONG);
-                    errorToast.show();
-
-                    addBitmapToSQL(urlString, bitmap);
+                    addBitmapToSQL(titleString, bitmap);
+                    finish();
                 }
                 else {
                     Toast errorToast = Toast.makeText(getBaseContext(), R.string.AD_toast_error, Toast.LENGTH_LONG);

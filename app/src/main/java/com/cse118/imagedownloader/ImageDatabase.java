@@ -2,11 +2,16 @@ package com.cse118.imagedownloader;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.sql.Blob;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageDatabase extends SQLiteOpenHelper {
 
@@ -46,5 +51,26 @@ public class ImageDatabase extends SQLiteOpenHelper {
         values.put(ImageTable.COL_BLOB, blob);
         long id = db.insert(ImageTable.TABLE, null, values);
         return id;
+    }
+
+    public List<Image> getImages() {
+        List<Image> images = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "select * from " + ImageTable.TABLE;
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Image image = new Image();
+                image.setId(cursor.getInt(0));
+                image.setTitle(cursor.getString(1));
+                image.setBlob(cursor.getBlob(2));
+                images.add(image);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return images;
     }
 }

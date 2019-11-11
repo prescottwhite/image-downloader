@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        mViewButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getBaseContext(), ViewActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        mViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
